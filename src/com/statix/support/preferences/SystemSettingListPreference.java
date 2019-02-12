@@ -14,45 +14,37 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.support.preferences;
+package com.statix.support.preferences;
 
 import android.content.Context;
-import android.support.v7.preference.EditTextPreference;
+import android.support.v7.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.provider.Settings;
 
-public class SystemSettingEditTextPreference extends EditTextPreference {
+public class SystemSettingListPreference extends ListPreference {
     private boolean mAutoSummary = false;
 
-    public SystemSettingEditTextPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SystemSettingListPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingEditTextPreference(Context context, AttributeSet attrs) {
+    public SystemSettingListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingEditTextPreference(Context context) {
+    public SystemSettingListPreference(Context context) {
         super(context);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
 
     @Override
-    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        // This is what default ListPreference implementation is doing without respecting
-        // real default value:
-        //setText(restoreValue ? getPersistedString(mText) : (String) defaultValue);
-        // Instead, we better do
-        setText(restoreValue ? getPersistedString((String) defaultValue) : (String) defaultValue);
-    }
-
-    @Override
-    public void setText(String text) {
-        super.setText(text);
+    public void setValue(String value) {
+        super.setValue(value);
         if (mAutoSummary || TextUtils.isEmpty(getSummary())) {
-            setSummary(text, true);
+            setSummary(getEntry(), true);
         }
     }
 
@@ -65,5 +57,13 @@ public class SystemSettingEditTextPreference extends EditTextPreference {
         mAutoSummary = autoSummary;
         super.setSummary(summary);
     }
-}
 
+    @Override
+    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
+        // This is what default ListPreference implementation is doing without respecting
+        // real default value:
+        //setValue(restoreValue ? getPersistedString(mValue) : (String) defaultValue);
+        // Instead, we better do
+        setValue(restoreValue ? getPersistedString((String) defaultValue) : (String) defaultValue);
+    }
+}

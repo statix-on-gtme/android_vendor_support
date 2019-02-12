@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.support.preferences;
+package com.statix.support.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,7 +37,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
-import com.dirtyunicorns.support.R;
+import com.statix.support.R;
 
 public class PackageListAdapter extends BaseAdapter implements Runnable {
     private PackageManager mPm;

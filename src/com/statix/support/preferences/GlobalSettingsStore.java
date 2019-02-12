@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.support.preferences;
+package com.statix.support.preferences;
 
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;
