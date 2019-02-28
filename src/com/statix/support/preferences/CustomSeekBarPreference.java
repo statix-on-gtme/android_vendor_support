@@ -154,12 +154,16 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
 
     public void setMax(int max) {
         mMax = max;
-        mSeekBar.setMax(mMax - mMin);
+        if (mSeekBar != null) {
+            mSeekBar.setMax(mMax - mMin);
+        }
     }
 
     public void setMin(int min) {
         mMin = min;
-        mSeekBar.setMax(mMax - mMin);
+        if (mSeekBar != null) {
+            mSeekBar.setMax(mMax - mMin);
+        }
     }
 
     public void setIntervalValue(int value) {
@@ -199,7 +203,9 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
 
     public void refresh(int newValue) {
         // this will trigger onProgressChanged and refresh everything
-        mSeekBar.setProgress(newValue - mMin);
+        if (mSeekBar != null) {
+            mSeekBar.setProgress(newValue - mMin);
+        }
     }
 
     @Override
@@ -239,7 +245,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         if (mDefaultValue > mMax) {
             mDefaultValue = mMax;
         }
-        if (mCurrentValue == mDefaultValue) {
+        if (mStatusText != null && mCurrentValue == mDefaultValue) {
             mStatusText.setText(mDefaultText);
         }
     }
