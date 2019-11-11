@@ -52,7 +52,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
                 attrs, R.styleable.CustomSeekBarPreference);
 
         mMax = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
-        mMin = attrs.getAttributeIntValue(SETTINGS_NS, "min", 0);
+        mMin = attrs.getAttributeIntValue(ANDROIDNS, "min", 0);
         mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", -1);
         if (mDefaultValue > mMax) {
             mDefaultValue = mMax;
