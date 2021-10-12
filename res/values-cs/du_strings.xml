@@ -16,14 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Výběr barev</string>
-    <string name="press_color_to_apply">Stiskněte níže uvedenou barvu pro použití</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
-    <string name="color_default">Výchozí</string>
+    <string name="default">Výchozí</string>
 
 </resources>

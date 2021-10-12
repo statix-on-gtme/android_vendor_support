@@ -16,13 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Sélecteur de couleur</string>
-    <string name="press_color_to_apply">Appuyer sur la couleur pour valider</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex :</string>
-    <string name="set">Définir</string>
-    <string name="color_default">Par défaut</string>
+    <string name="default">Par défaut</string>
 
 </resources>
